@@ -1,0 +1,277 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+  text-align: center;
+  .fade-in {
+  animation: fadeInUp 0.6s ease;
+}
+
+}
+
+input, select, button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  cursor: pointer;
+  background-color: #0b63f6;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: #084dc1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+#admin-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-link {
+  display: inline-block;
+  text-align: center;
+  background-color: #28a745;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  background-color: #218838;
+}
+
+/* Modern Login Styles */
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease forwards;
+  text-align: center;
+}
+
+.login-form input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: #0b63f6;
+  box-shadow: 0 0 8px rgba(11, 99, 246, 0.3);
+  outline: none;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  margin-top: 15px;
+  background-color: #0b63f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-form button:hover {
+  background-color: #084dc1;
+  transform: translateY(-2px);
+}
+
+.error-msg {
+  display: none;
+  color: #e74c3c;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animate page container */
+.container {
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Inputs, Selects, and Buttons */
+input, select {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: border 0.3s, box-shadow 0.3s;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  border-color: #0b63f6;
+  box-shadow: 0 0 8px rgba(11, 99, 246, 0.3);
+  outline: none;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s ease;
+  background-color: #0b63f6;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: #084dc1;
+  transform: translateY(-1px);
+}
+
+#filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#invoice-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+#cancel-edit {
+  background-color: #6c757d;
+}
+
+#cancel-edit:hover {
+  background-color: #5a6268;
+}
+
+table {
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+td, th {
+  padding: 12px;
+  font-size: 0.95rem;
+}
+
+#admin-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+	
+.styled-form {
+  margin-top: 20px;
+  display: grid;
+  gap: 12px;
+  max-width: 400px;
+}
+
+.back-btn {
+  margin-bottom: 20px;
+  background-color: #6c757d;
+}
+
+.back-btn:hover {
+  background-color: #5a6268;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+#admin-users-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  background-color: #fff;
+}
+
+#admin-users-table th {
+  background-color: #f0f0f0;
+}
+
+#admin-users-table th, #admin-users-table td {
+  padding: 12px;
+  text-align: center;
+}
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin User Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container fade-in">
+    <h2>Admin User Management</h2>
+
+    <button onclick="window.location.href='index.html'" class="back-btn">← Back to Dashboard</button>
+
+    <form id="add-user-form" class="styled-form">
+      <h3>Add Admin</h3>
+      <input type="text" id="new-username" placeholder="Username" required />
+      <input type="password" id="new-password" placeholder="Password" required />
+      <button type="submit">Add</button>
+    </form>
+
+    <h3 style="margin-top: 30px;">Existing Admin Users</h3>
+    <table id="admin-users-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Script stays unchanged -->
+  <script>
+    fetch('/api/session', { credentials: 'include' })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.loggedIn) {
+          window.location.href = '/login.html';
+        }
+      });
+
+    async function fetchAdmins() {
+      const res = await fetch('/api/admin-users', { credentials: 'include' });
+      const users = await res.json();
+      const tbody = document.querySelector('#admin-users-table tbody');
+      tbody.innerHTML = '';
+      users.forEach(u => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${u.id}</td>
+          <td>${u.username}</td>
+          <td><button class="delete-btn" onclick="deleteAdmin(${u.id})">Delete</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    document.getElementById('add-user-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('new-username').value;
+      const password = document.getElementById('new-password').value;
+
+      const res = await fetch('/api/admin-users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ username, password })
+      });
+
+      if (res.ok) {
+        document.getElementById('add-user-form').reset();
+        fetchAdmins();
+      } else {
+        const err = await res.json();
+        alert(err.error || 'Failed to add user');
+      }
+    });
+
+    async function deleteAdmin(id) {
+      if (confirm('Are you sure you want to delete this admin?')) {
+        const res = await fetch(`/api/admin-users/${id}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if (res.ok) fetchAdmins();
+        else alert('Failed to delete user');
+      }
+    }
+
+    fetchAdmins();
+  </script>
+</body>
+</html>
